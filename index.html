@@ -4,105 +4,187 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
-    <title>BG-Generator</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="asset/BGGlogo.svg">
+    <title>Background Generator</title>
 </head>
-<body class="flex flex-center">
-    <main class="border panel flex flex-center col">
-        <h1>BG-Generator</h1>
-            <div class="level flex ver-align mar-t-10">
-                <h2 class="mar-r-10">Level</h2>
-                <div class="level">
-                    <input type="radio" name="level" id="basic" checked><label for="basic">Basic</label>
-                    <input type="radio" name="level" id="advance"><label for="advance">Advance</label>
-                </div>
-            </div>
-            <div class="type flex mar-t-10">
-                <h2>Type of gradient</h2>
-                <select id="type" class="border mar-l-10">
-                    <option value="Linear" selected>Linear</option>
-                    <option value="Radial">Radial</option>
-                    <option value="Conic">Conic</option>
-                </select>
-            </div>
-            <div class="direction mar-t-10">
-                <div class="linear">
-                    <h2 id="linear_p">Direction</h2>
-                    <div id="a_linear_p" class="mar-t-10 flex">
-                        <div class="from flex">
-                            <h3 class="mar-r-10">Degree</h3>
-                            <input type="number" name="degree" id="degree" maxlength="3" minlength="1" value="45" class="border w-5-ch">  
-                        </div>     
-                    </div>
-                <div class="basicLinear flex mar-t-10" id="b_linear_P">
-                    <h3>To</h3>
-                    <select class="border mar-l-10" id="basicLinear">
-                        <option value="Top">Top</option>
-                        <option value="Right" selected>Right</option>
-                        <option value="Bottom">Bottom</option>
-                        <option value="Left">Left</option>
-                        <option value="Top Right">Top Right</option>
-                        <option value="Bottom Right">Bottom Right</option>
-                        <option value="Top Left">Top Left</option>
-                        <option value="Bottom Left">Bottom Left</option>
-                    </select>
-                </div>
-                </div>
-                <div class="radial">
-                    <div class="basic" id="b_radial_p">
-                        <h3>Position</h3>
-                        <select class="border mar-l-10 mar-r-10" id="position">
-                            <option value="Top">Top</option>
-                            <option value="Right" selected>Right</option>
-                            <option value="center">center</option>
-                            <option value="Bottom">Bottom</option>
-                            <option value="Left">Left</option>
-                            <option value="Top Right">Top Right</option>
-                            <option value="Bottom Right">Bottom Right</option>
-                            <option value="Top Left">Top Left</option>
-                            <option value="Bottom Left">Bottom Left</option>
-                        </select>
-                        <div id="radius_p">
-                            <h3 class="mar-r-10 mar-l-10">Radius</h3>
-                            <input type="number" name="radius" id="radius" maxlength="2" min="+1" value="3" class="w-5-ch border">
+<body class="flex f-d-c">
+    <header>
+        <div class="flex container">
+            <img src="asset/logo.svg" alt="">
+            <div class="n-m-nav flex b-r">
+                <div class="flex  m-r-10">
+                    <h2 class="v-text m-r-10">level</h2>
+                    <div class="flex f-j-e w-100-p f-d-c">
+                        <div>
+                            <input class="radio-s" type="radio" name="level" id="basic" checked>
+                            <label for="basic">basic</label>
                         </div>
-                        <div id="shape_p">
-                            <h3>Shape</h3>
+                        <div>
+                            <input class="radio-s" type="radio" name="level" id="advance" >
+                            <label for="advance">advance</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex  m-r-10">
+                    <h2 class="v-text m-r-10">type</h2>
+                    <div class="flex f-j-e w-100-p f-d-c">
+                        <div>
+                            <input class="radio-s" type="radio" name="type" id="linear" checked>
+                            <label for="linear">linear</label>
+                        </div>
+                        <div>
+                            <input class="radio-s" type="radio" name="type" id="radial">
+                            <label for="radial">radial</label>
+                        </div>
+                        <div>
+                            <input class="radio-s" type="radio" name="type" id="conic">
+                            <label for="conic">conic</label>    
+                        </div>
+                    </div>
+                </div>
+                <div class="flex  m-r-10">
+                    <h2 class="v-text m-r-10">color</h2>
+                    <div class="flex f-j-e w-100-p f-d-c">
+                    <input class="color-input" type="color" name="basic" id="" value="#1CB5E0">
+                    <input class="color-input" type="color" name="advance" id="" value="#000851">
+                    </div>
+                </div>
+            </div>
+            <div id="panel" class="flex m-l-10">
+                <div class="basicLinearPanel panel f-d-c">
+                    <h2>Direction</h2>
+                    <div class="flex">
+                        <h3>to</h3>
+                        <div class="selection m-l-5">
+                            <select id="linearDirection">
+                                <option value="Top">Top</option>
+                                <option value="Right" selected>Right</option>
+                                <option value="Bottom">Bottom</option>
+                                <option value="Left">Left</option>
+                                <option value="Top Right">Top Right</option>
+                                <option value="Bottom Right">Bottom Right</option>
+                                <option value="Top Left">Top Left</option>
+                                <option value="Bottom Left">Bottom Left</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="advanceLinearPanel panel f-d-c">
+                    <h2>Direction</h2>
+                    <div class="flex">
+                        <h3 class="m-r-10">Degree</h3>
+                        <div class="degree">
+                            <input type="number" name="degree" id="linearAngle" maxlength="3" max="360" min="1" value="45" class="w-6-ch">
+                            <span class="custom-arrow"></span>
+                        </div>  
+                    </div>     
+                </div>
+                <div class="basicRadialPanel panel">
+                    <div>
+                        <h3>Position</h3>
+                        <div class="selection">
+                            <select class="border mar-l-10 mar-r-10" id="radialPosition">
+                                <option value="Top">Top</option>
+                                <option value="Right" selected>Right</option>
+                                <option value="center">center</option>
+                                <option value="Bottom">Bottom</option>
+                                <option value="Left">Left</option>
+                                <option value="Top Right">Top Right</option>
+                                <option value="Bottom Right">Bottom Right</option>
+                                <option value="Top Left">Top Left</option>
+                                <option value="Bottom Left">Bottom Left</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="m-l-10">
+                        <h3 class="">Radius</h3>
+                        <div class="degree w-5-ch">
+                            <input type="number" name="radius" id="radius" maxlength="2" min="1" value="3" class="w-6-ch">
+                            <span class="custom-arrow"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="advanceRadialPanel panel">
+                    <div>
+                            <h3>Position</h3>
+                        <div class="flex f-d-c m-r-10">
+                            <div class="flex">
+                                <div class="degree w-5-ch">
+                                    <input type="number" name="radius" id="x-axis" maxlength="2" min="1" value="3" class="w-6-ch">
+                                    <span class="custom-arrow"></span>
+                                </div>
+                                <label for="x-axis" class="m-l-5">X-axis</label>
+                            </div>
+                            <div class="flex m-t-5">
+                                <div class="degree w-5-ch">
+                                    <input type="number" name="radius" id="y-axis" maxlength="2" min="1" value="3" class="w-6-ch">
+                                    <span class="custom-arrow"></span>
+                                </div>
+                                <label for="y-axis" class="m-l-5">Y-axis</label>
+                            </div>
+                        </div>
+                    </div>    
+                    <div>
+                        <h3>Shape</h3>
+                        <div class="selection">
                             <select name="" id="shape" class="border">
                                 <option value="farthest-side" selected>farthest-side</option>
                                 <option value="farthest-corner">farthest-corner</option>
                                 <option value="closest-side">closest-side</option>
                                 <option value="closest-corner">closest-corner</option>
-
                             </select>
                         </div>
-
+                    </div>
+                    
+                </div>
+                <div class="advanceConicPanel panel">
+                    <div class="m-r-10">
+                        <div>
+                            <h2>Position</h2>
+                                <div class="degree w-6-ch">
+                                    <input type="number" name="radius" id="conicPosition" maxlength="2" min="-360" max="360" value="3" class="w-7-ch">
+                                    <span class="custom-arrow"></span>
+                                </div>
+                        </div>
+                        <div>
+                            <h2>Radius</h2>
+                            <div class="degree w-5-ch">
+                                <input type="number" name="radius" id="conicRadius" maxlength="2" min="1" value="3" class="w-6-ch">
+                                <span class="custom-arrow"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h2>Degree</h2>
+                        <div class="flex m-t-5">
+                            <div class="degree w-5-ch">
+                                <input type="number" name="radius" id="color1degree" maxlength="2" min="1" value="3" class="w-6-ch">
+                                <span class="custom-arrow"></span>
+                            </div>
+                            <label for="color1degree" class="m-l-5">color1</label>
+                        </div>
+                        <div class="flex m-t-5">
+                            <div class="degree w-5-ch">
+                                <input type="number" name="radius" id="color2degree" maxlength="2" min="1" value="3" class="w-6-ch">
+                                <span class="custom-arrow"></span>
+                            </div>
+                            <label for="color2degree" class="m-l-5">color2</label>
+                        </div>
                     </div>
                 </div>
-                <div id="conic">
-                    <div class="from flex">
-                        <h3 class="mar-r-10">Degree1</h3>
-                        <input type="number" name="degree" id="conicdegree1" maxlength="3" minlength="1" value="45" class="w-5-ch border">  
-                    </div> 
-                    <div class="from flex">
-                        <h3 class="mar-r-10">Degree2</h3>
-                        <input type="number" name="degree" id="conicdegree2" maxlength="3" minlength="1" value="45" class="w-5-ch border">  
-                    </div> 
-                </div>
             </div>
-            <div id="color" class="flex mar-t-10">
-                <h2>Color</h2>
-                <input class="color mar-l-10 border" type="color" id="color1">
-                <input class="color mar-l-10 border" type="color" id="color2">
+            <div class="flex button-section">
+                <button class="m-r-10" id="btn"><p class="v-text p-x-10">copy</p></button>
+                <span class="note v-text none" id="note">copied!</span>
             </div>
-            <div class="written mar-t-10 flex col flex-center">
-                <h2>Current Background</h2>
-                <h3 id="bgText">Black</h3>  
-            </div>
-            <p class="mar-t-10">Double to hide panel</p>
+        </div>
+    </header>
+    <main>
+
     </main>
     <script src="script.js"></script>
 </body>
